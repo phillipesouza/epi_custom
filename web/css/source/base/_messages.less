@@ -1,0 +1,15 @@
+& when (@media-common = true) {
+    .message {
+        &.success,
+        &.warning,
+        &.info,
+        &.error,
+        &.notice {
+            > *:first-child:before {
+                font-family: @icon-font-name;
+                line-height: 1;
+                margin: 0;
+            }
+        }
+    }
+}

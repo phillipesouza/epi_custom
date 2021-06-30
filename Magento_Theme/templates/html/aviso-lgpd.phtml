@@ -1,0 +1,34 @@
+<?php if ($this->getLayout()
+            ->createBlock('Magento\Cms\Block\Block')
+            ->setBlockId('aviso_lgpd')
+            ->toHtml()): ?>
+
+    <div class="lgpd-container">
+        <div class="container">
+            <div class="lgpd-message">
+                <?php
+                echo $this->getLayout()
+                    ->createBlock('Magento\Cms\Block\Block')
+                    ->setBlockId('aviso_lgpd')
+                    ->toHtml();
+                ?>
+            </div>
+            <div class="lgpd-buttons-container">
+                <!-- <button id="cookie-settings"
+                        class="action primary"
+                        onclick="window.location.href='<?php // echo $block->getBaseUrl().'cookie-settings' ?>';">
+                        cookie settings
+                </button> -->
+                <button id="accept-lgpd" class="action primary">Aceitar</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "js/lgpd": {}
+        }
+    }
+    </script>
+<?php endif; ?>

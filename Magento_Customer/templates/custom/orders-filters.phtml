@@ -1,0 +1,69 @@
+<form action="#" class="history-filters">
+    <div class="filter purchase-order">
+        <select name="filter-purchase-order" id="filter-purchase-order">
+            <option value="1">Ordens de compra</option>
+            <option value="2">Dados do pedido</option>
+            <option value="3">OC</option>
+            <option value="4">NF</option>
+        </select>
+        <input type="text" name="filter-purchase-order-text" id="filter-purchase-order-text">
+    </div>
+    <div class="filter cnpj">
+        <label for="filter-cnpj-text">CNPJ</label>
+        <input type="text" name="filter-cnpj-text" id="filter-cnpj-text">
+    </div>
+    <div class="filter product-name">
+        <select name="filter-product-name" id="filter-product-name">
+            <option value="1">Ordens de compra</option>
+            <option value="2">Dados do pedido</option>
+            <option value="3">OC</option>
+            <option value="4">NF</option>
+        </select>
+        <input type="text" name="filter-product-name-text" id="filter-product-name-text">
+    </div>
+    <div class="filter status">
+        <label for="filter-status">Status</label>
+        <select name="filter-status" id="filter-status">
+            <option value="1">Ordens de compra</option>
+            <option value="2">Dados do pedido</option>
+            <option value="3">OC</option>
+            <option value="4">NF</option>
+        </select>
+    </div>
+    <div class="filter filter-option period">
+        <div class="control control-period">
+            <label for="filter-period">Faixa de Período</label>
+            <select id="period-filter" name="filter-period">
+                <option value="fa">Período de/até</option>
+                <option value="7d">7 dias</option>
+                <option value="15d">15 dias</option>
+                <option value="1m">1 mês</option>
+                <option value="2m">2 meses</option>
+                <option value="6m">6 meses</option>
+            </select>
+        </div>
+        <div class="control show fromat">
+            <div class="field from">
+                <label for="filter-from">Período de</label>
+                <input type="text" name="filter-from" id="from-filter">
+                <button class="icon" type="button"></button>
+            </div>
+            <div class="field at">
+                <label for="filter-at">até</label>
+                <input type="text" name="filter-at" id="at-filter">
+                <button class="icon" type="button"></button>
+            </div>
+        </div>
+    </div>
+    <div class="filter submit">
+        <input type="submit" value="Pesquisar">
+    </div>
+</form>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "js/purchased-history-filter": {}
+    }
+}
+</script>

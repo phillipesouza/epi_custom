@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/view.xsd">
+    <media>
+        <images module="Magento_Catalog">
+
+            <!-- Página da categoria -->
+            <image id="category_page_grid" type="small_image">
+                <width>335</width>
+                <height>338</height>
+            </image>
+
+            <!-- Widgets de produtos -->
+            <image id="new_products_content_widget_grid" type="small_image">
+                <width>335</width>
+                <height>338</height>
+            </image>
+
+            <!-- Produtos Upsell -->
+            <image id="upsell_products_list" type="small_image">
+                <width>335</width>
+                <height>338</height>
+            </image>
+
+            <!-- Produtos Relacionados -->
+            <image id="related_products_list" type="small_image">
+                <width>335</width>
+                <height>338</height>
+            </image>
+
+            <!-- Produtos cross sell -->
+            <image id="cart_cross_sell_products" type="small_image">
+                <width>335</width>
+                <height>338</height>
+            </image>
+
+            <!-- Imagem grande da página de produto -->
+            <image id="product_page_image_large" type="image"/>
+            <image id="product_page_image_medium" type="image">
+                <width>553</width>
+                <height>563</height>
+            </image>
+
+            <!-- Minicart -->
+            <image id="mini_cart_product_thumbnail" type="thumbnail">
+                <width>100</width>
+                <height>100</height>
+            </image>
+
+            <!-- Página do carrinho -->
+            <image id="cart_page_product_thumbnail" type="small_image">
+                <width>100</width>
+                <height>100</height>
+            </image>
+
+            <!-- Página interna de meus pedidos -->
+            <image id="customer_order_product_list" type="small_image">
+                <width>80</width>
+                <height>80</height>
+            </image>
+
+            <!-- Wishlist -->
+            <image id="wishlist_thumbnail" type="small_image">
+                <width>290</width>
+                <height>290</height>
+            </image>
+        </images>
+    </media>
+</view>

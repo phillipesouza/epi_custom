@@ -1,0 +1,144 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// phpcs:disable Magento2.Templates.ThisInTemplate
+
+/** @var \Magento\Sales\Block\Order\History $block */
+?>
+<?php $_orders = $block->getOrders(); ?>
+<?= $block->getChildHtml('info') ?>
+<?php if ($_orders && count($_orders)) : ?>
+    <div class="table-wrapper orders-history">
+        <div class="orders-container">
+            <?php foreach ($_orders as $_order) : ?>
+                <div class="order-item">
+
+                    <div class="order-row-main">
+                        <div class="attribute">
+                            <span class="title"><?= $block->escapeHtmlAttr(__('Order #')) ?>:</span>
+                            <span class="content"><?= $block->escapeHtml($_order->getRealOrderId()) ?></span>
+                        </div>
+                        <span class="order-state desmembrado">
+                            desmembrado
+                        </span>
+                    </div>
+
+                    <div class="order-row-attr">
+                        <div class="conj-left">
+                            <div class="attribute">
+                                <span class="title">Ordem de Compra:</span>
+                                <span class="content">OC0001-OC0002</span>
+                            </div>
+                            <div class="attribute">
+                                <span class="title">CNPJ:</span>
+                                <span class="content">00.000.000/0001-01</span>
+                            </div>
+                        </div>
+                        <div class="conj-right">
+                            <div class="attribute">
+                                <span class="title">Nota Fiscal:</span>
+                                <span class="content">-</span>
+                            </div>
+                            <div class="attribute">
+                                <span class="title">Total de produtos:</span>
+                                <span class="content">06</span>
+                            </div>
+                            <div class="attribute">
+                                <span class="title">Valor Ped. Fornecedor:</span>
+                                <span class="content">R$ 2.557,00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-row-attr">
+                        <div class="conj-left">
+                            <div class="attribute">
+                                <span class="title">data do pedido:</span>
+                                <span class="content">15/06/2020</span>
+                            </div>
+                            <div class="attribute">
+                                <span class="title">previsto para:</span>
+                                <span class="content">20/06/2020</span>
+                            </div>
+                        </div>
+                        <div class="conj-right">
+                            <div class="attribute">
+                                <span class="title">Cidade:</span>
+                                <span class="content">São Paulo</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-row-status">
+                        <div class="attribute">
+                            <span class="title">Status:</span>
+                            <div class="content">
+                                <div class="state completed registrado">
+                                    <span class="square"></span>
+                                    <span class="line"></span>
+                                    <span class="text">
+                                        <span>Registrado</span>
+                                    </span>
+                                </div>
+                                <div class="state completed processamento">
+                                    <span class="square"></span>
+                                    <span class="line"></span>
+                                    <span class="text">
+                                        <span>Em processamento</span>
+                                    </span>
+                                </div>
+                                <div class="state completed separacao">
+                                    <span class="square"></span>
+                                    <span class="line"></span>
+                                    <span class="text">
+                                        <span>Separação</span>
+                                    </span>
+                                </div>
+                                <div class="state inprogress faturado">
+                                    <span class="square"></span>
+                                    <span class="line"></span>
+                                    <span class="text">
+                                        <span>Faturado</span>
+                                    </span>
+                                </div>
+                                <div class="state transito">
+                                    <span class="square"></span>
+                                    <span class="line"></span>
+                                    <span class="text">
+                                        <span>Em trânsito</span>
+                                    </span>
+                                </div>
+                                <div class="state entregue">
+                                    <span class="square"></span>
+                                    <span class="line"></span>
+                                    <span class="text">
+                                        <span>Entregue</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="order-row-actions">
+                        <div class="actions-links">
+                            <a class="nf-link" href="#">NF</a>
+                            <a class="billet-link" href="#">Boleto</a>
+                        </div>
+                        <a href="<?= $block->escapeUrl($block->getViewUrl($_order)) ?>" class="action view">
+                            <span>+ Detalhes</span>
+                        </a>
+                    </div>
+
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php if ($block->getPagerHtml()) : ?>
+        <div class="order-products-toolbar toolbar bottom"><?= $block->getPagerHtml() ?></div>
+    <?php endif ?>
+<?php else : ?>
+    <div class="message info empty"><span><?= $block->escapeHtml(__('You have placed no orders.')) ?></span></div>
+<?php endif ?>

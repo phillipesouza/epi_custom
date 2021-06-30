@@ -1,0 +1,114 @@
+& when (@media-common = true) {
+    .catalog-product_compare-index {
+        .page-title-wrapper {
+            h1 {
+                margin-bottom: 9px;
+            }
+        }
+
+        .table-wrapper.comparison {
+            border: 0;
+            margin-top: 44px;
+        }
+
+        .table-comparison {
+            width: auto;
+
+            .cell {
+                padding: 10px 5px;
+                width: 240px;
+            }
+            .cell.product.label,
+            .cell.label,
+            .cell.product.info,
+            tbody {
+                border: 0;
+            }
+
+            .cell.product.info {
+                padding-bottom: 28px;
+            }
+
+            .product-item-container {
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+            }
+
+            .product-item-info {
+                width: auto;
+                padding: 10px 10px 14px 10px;
+            }
+
+            a.action.delete {
+                display: block;
+                text-align: center;
+                text-decoration: underline;
+                margin-bottom: 13px;
+            }
+
+            .product-item-name {
+                margin: 0 0 12px 0;
+                a {
+                    .max-lines(16px, 3);
+                }
+            }
+
+            .product-attr {
+                margin: 0;
+                font-size: 12px;
+                line-height: 14px;
+                text-transform: uppercase;
+            }
+
+            .attributes-list {
+                .attribute.label {
+                    text-transform: uppercase;
+                    font-size: 12px;
+                }
+                .cell.label {
+                    padding-right: 10px;
+                }
+                .cell.product.attribute {
+                    font-size: 14px;
+                    padding: 10px 10px;
+                    border: 0;
+                }
+                tr {
+                    &:nth-child(even) {
+                        background: #ccc;
+                    }
+                }
+            }
+        }
+
+        .modal-popup {
+
+        }
+    }
+
+    @media @768 {
+        .catalog-product_compare-index {
+            .page-title-wrapper {
+                h1 {
+                    margin-bottom: 25px;
+                }
+            }
+            .table-wrapper.comparison {
+                margin: 35px -15px 0;
+                width: auto;
+                max-width: initial;
+            }
+            .table-comparison {
+                width: 100%;
+                .cell {
+                    width: 180px;
+                }
+                .cell.product.info {
+                    padding-bottom: 18px;
+                }
+                .product-item-name {
+                    margin: 0 0 6px 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,105 @@
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+@import 'source/lib/_lib.less'; // Global lib
+@import 'source/_theme.less'; // Theme overrides
+@import 'source/_variables.less'; // Local theme variables
+
+@baseDir: '../'; // Default
+
+@media print {
+    .page-header,
+    .nav-sections,
+    .page-footer,
+    .copyright,
+    .blackBackground,
+    .fotorama__arr,
+    #zoom-message-content,
+    .block.upsell,
+    .block.related,
+    .pagebuilder-mobile-only {
+        display: none !important;
+    }
+
+    body.catalog-product-view {
+        #maincontent {
+            max-width: 1150px;
+            margin: 0 auto;
+
+            .column.main {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .pagebuilder-video-container {
+                display: none !important;
+            }
+
+            .page-title-container {
+                flex-direction: row;
+                align-items: center;
+
+                .page-title-wrapper {
+                    order: 5;
+                }
+            }
+
+            .top-attributes {
+                flex-basis: 100%;
+                flex-direction: row;
+            }
+            .product.media {
+                flex-basis: 34%;
+                margin-bottom: 117px;
+            }
+            .product-info-attributes {
+                flex-basis: 33%;
+                margin-bottom: 117px;
+            }
+            .product-info-main {
+                flex-basis: 33%;
+                margin-bottom: 117px;
+            }
+            .product.info.detailed {
+                flex-basis: 100%;
+
+                .data.item.title {
+                    margin-bottom: 30px;
+
+                    &.active {
+                        a {
+                            color: #000 !important;
+                        }
+                    }
+                    a {
+                        padding: 0;
+                        background: transparent;
+                        color: #000 !important;
+                        font-weight: 400;
+                        font-size: 20px;
+                        height: auto;
+                        line-height: 1;
+
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+                .data.item.content {
+                    margin-bottom: 0;
+                    padding: 0;
+                    display: block !important;
+                }
+            }
+
+            .product.data.items {
+                > .item.title {
+                    border: 0;
+                }
+            }
+
+        }
+    }
+}

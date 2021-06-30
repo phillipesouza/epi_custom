@@ -1,0 +1,67 @@
+<?php $filterValue = (empty($_GET['filter']))? null : $_GET['filter']; ?>
+
+<p class="page-desc"><?= __('On this section you will find yours purchased products.') ?></p>
+
+<div class="purchasedhistory-filter">
+    <form method="GET" enctype="multipart/form-data" id="form-filter">
+
+        <div class="filter-option period">
+            <div class="control control-period">
+                <label for="period">Faixa de Período</label>
+                <select id="period-filter" name="period">
+                    <option value="fa">Período de/até</option>
+                    <option value="7d">7 dias</option>
+                    <option value="15d">15 dias</option>
+                    <option value="1m">1 mês</option>
+                    <option value="2m">2 meses</option>
+                    <option value="6m">6 meses</option>
+                </select>
+            </div>
+            <div class="control show fromat">
+                <div class="field from">
+                    <label for="from">Período de</label>
+                    <input type="text" name="from" id="from-filter">
+                    <button class="icon" type="button"></button>
+                </div>
+                <div class="field at">
+                    <label for="at">até</label>
+                    <input type="text" name="at" id="at-filter">
+                    <button class="icon" type="button"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-option">
+            <div class="control">
+                <label for="filter"><?= __('Filter by') ?></label>
+                <select id="filterby-filter" name="filter">
+                    <option value="1">Nome do produto</option>
+                    <option value="2">Código Epi</option>
+                    <option value="3">Código do cliente</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="filter-option">
+            <div class="control">
+                <label for="category"><?= __('Category') ?></label>
+                <select id="category-filter" name="category">
+                    <option value="category1">Category 1</option>
+                    <option value="category2">Category 2</option>
+                    <option value="category3">Category 3</option>
+                    <option value="category4">Category 4</option>
+                </select>
+            </div>
+        </div>
+
+        <input type="submit" id="filter-send" value="Filtrar">
+    </form>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "js/purchased-history-filter": {}
+        }
+    }
+</script>

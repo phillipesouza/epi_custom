@@ -1,0 +1,186 @@
+//
+// Magento UI Media Queries - Breakpoints
+//
+// @screen__xxs: 320px;
+// @screen__x-s: 370px;
+// @screen__xs:  480px;
+// @screen__s:   640px;
+// @screen__m:   768px;
+// @screen__l:   1024px;
+// @screen__xl:  1440px;
+//  _____________________________________________
+
+
+//
+// Mobile and Desktop (style-m.css) - common
+//
+// Is placed in style-m.css as both desktop and mobile devices
+// have rules within this block "in common"
+//  ---------------------------------------------
+
+    & when (@media-common = true) {
+        .page-header {
+            .lgpd {
+                position: fixed;
+                width: 100%;
+                z-index: 100;
+                bottom: 0;
+                background: @bg-white;
+                box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.25);
+                display: none;
+                h3 {
+                    text-align: left;
+                    font-size: 23px;
+                    line-height: 17px;
+                    font-weight: 400;
+                    color: @text-dark-black;
+                    margin: 0;
+                    text-transform: uppercase;
+                    font-family: 'Arial';
+                    margin-bottom: 10px;
+                }
+                p {
+                    color: @text-dark-black;
+                    text-align: left;
+                    font-size: 14px;
+                    line-height: 17.07px;
+                    text-transform: initial;
+                    font-weight: 400;
+                    font-style: normal;
+                    font-family: 'Open Sans';
+                    a {
+                        color: @primary__color;
+                        text-decoration: underline;
+                        &:hover {
+                            font-weight: normal;
+                        }
+                    }
+                }
+                .lgpd-container {
+                    padding: 15px 10px 0 30px;
+                    min-height: 90px;
+                    .container {
+                        display: block;
+                        padding: 0;
+                        max-width: 1153px;
+                        width: 100%;
+                        margin: 0px auto;
+                        .lgpd-message {
+                            float: left;
+                            margin-bottom: -15px;
+                        }
+                        .lgpd-buttons-container {
+                            float: right;
+                            top: 3px;
+                            position: relative;
+                            button {
+                                font-weight: normal;
+                                text-transform: uppercase;
+                                padding: 10px 20px;
+                                height: auto;
+                                width: auto;
+                                background: @primary__color;
+                                font-weight: 700;
+                                font-size: 14px;
+                                border-radius: 0;
+                                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+                                border: none;
+                                top: 12px;
+                                position: relative;
+                                &#cookie-settings {
+                                    background: #333;
+                                    border-color: #2786D2;
+                                    color: #2C90E1;
+                                }
+                                &#accept-lgpd {
+                                    color: #FFFFFF;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+//
+// Mobile Only (style-m.css)
+//  ---------------------------------------------
+
+    // @screen__m:   768px;
+    .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    }
+
+    // @screen__s:   640px;
+    .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+        .page-header {
+            .lgpd {
+                &.active {
+                    .lgpd-container {
+                        padding: 15px 10px 0 10px;
+                    }
+                }
+                .lgpd-container {
+                    .container {
+                        .lgpd-message {
+                            float: left;
+                            width: 65%;
+                        }
+                        .lgpd-buttons-container {
+                            width: max-content;
+                            margin-right: 20px;
+                            margin-top: 53px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // @screen__xs:  480px;
+    .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+
+    }
+
+    // @screen__x-s: 370px;
+    .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__x-s) {
+
+    }
+
+    // @screen__xxs: 320px;
+    .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xxs) {
+
+    }
+
+//
+// Tablet and Desktop (style-m.css)
+//
+// A media query block like this would be for devices which have
+// a min resolution of "screen_xs", which are mobile devices with a screen
+// resolution of 480px and bigger, meaning it would still be placed in styles-m
+//  ---------------------------------------------
+
+    // @screen__xs:  480px;
+    .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xs) {
+
+    }
+
+//
+// Desktop Only (style-l.css)
+// ---------------------------------------------
+
+    // @screen__m:   768px;
+    .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+        .page-header {
+            .lgpd {
+                .lgpd-container {
+                    .container {
+                        .lgpd-message {
+                            width: max-content;
+                        }
+                    }
+                }
+            }
+        }
+    }

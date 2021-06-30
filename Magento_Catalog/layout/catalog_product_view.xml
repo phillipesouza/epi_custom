@@ -1,0 +1,24 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="columns.top">
+            <container name="page.main.title.container" htmlTag="div" htmlClass="page-title-container" after="page.messages">
+                <container name="page.main.title.buttons" htmlTag="div" htmlClass="page-title-buttons">
+                    <block name="button.print" template="Magento_Catalog::custom/button-print.phtml"/>
+                </container>
+            </container>
+        </referenceContainer>
+        <move element="page.main.title" destination="page.main.title.container" before="page.main.title.buttons"/>
+        <move element="view.addto.compare" destination="page.main.title.buttons" before="button.print"/>
+
+        <referenceContainer name="content">
+            <block name="product.top.attributes" class="Magento\Catalog\Block\Product\View"
+                template="Magento_Catalog::custom/top-attributes.phtml" before="-"/>
+            <block name="product.info.attributes" class="Magento\Catalog\Block\Product\View"
+                template="Magento_Catalog::custom/product-info-attributes.phtml" before="product.info.main"/>
+            <block name="product.zoom.info" template="Magento_Catalog::custom/alert-zoom.phtml"/>
+        </referenceContainer>
+        <move element="product.info.media" destination="content" after="product.top.attributes"/>
+
+        <referenceContainer name="product.info.social.mobile.wrapper" remove="true"/>
+    </body>
+</page>

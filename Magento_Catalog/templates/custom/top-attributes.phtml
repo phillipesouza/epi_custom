@@ -1,0 +1,35 @@
+<?php
+    $product = $block->getProduct();
+
+    $empresa = $product->getData('company_approval_certificate');
+
+    $codEpi = $product->getData('sku');
+    $modFabricante = $product->getData('model_reference');
+?>
+
+<div class="top-attributes">
+    <?php if($empresa): ?>
+        <p class="attribute modelo">
+            <span class="value"><?= $empresa ?></span>
+        </p>
+    <?php endif; ?>
+
+    <?php /* Para onda 2 */ ?>
+    <?php if(false): ?>
+        <p class="attribute">
+            <span class="title">Cód. Cliente: </span><span class="value">121212</span>
+        </p>
+    <?php endif; ?>
+
+    <?php if($codEpi): ?>
+        <p class="attribute">
+            <span class="title">Cód. Epi: </span><span class="value"><?= $codEpi ?></span>
+        </p>
+    <?php endif; ?>
+
+    <?php if($modFabricante): ?>
+        <p class="attribute">
+            <span class="title">Mod. Fabricante: </span><span class="value"><?= $modFabricante ?></span>
+        </p>
+    <?php endif; ?>
+</div>

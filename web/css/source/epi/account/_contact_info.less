@@ -1,0 +1,71 @@
+& when (@media-common = true) {
+    .customer-account-edit {
+        .column.main {
+            .form-edit-account {
+                fieldset {
+                    margin: 0 0 20px;
+
+                    &.info {
+                        margin-right: 20px;
+                    }
+                }
+                legend {
+                    margin-bottom: 21px;
+                    border: 0;
+                    padding-bottom: 0;
+
+                    span {
+                        font-size: 20px;
+                        line-height: 23px;
+                        text-transform: uppercase;
+                    }
+                }
+                .action.save.primary {
+                    font-size: 12px;
+                    color: #F2F2F2;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    border-radius: 0;
+                    padding: 11px 23px;
+                    background: #003E7E;
+
+                    &:hover {
+                        background: #002851;
+                    }
+                }
+                .field.choice {
+                    input {
+                        .custom-checkbox(
+                            @notSelected: '\e93f',
+                            @selected: '\e940',
+                            @size: 16px,
+                            @topSpacing: 0,
+                            @color: #444
+                        );
+                    }
+                }
+            }
+        }
+    }
+
+    @media @768 {
+        .customer-account-edit {
+            .column.main {
+                .form-edit-account {
+                    fieldset {
+                        &.info {
+                            margin-right: 0;
+                        }
+                        &.company,
+                        &.job_title {
+                            float: none !important;
+                        }
+                        &.password {
+                            margin-top: 50px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

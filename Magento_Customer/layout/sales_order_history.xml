@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block name="sales.order.filters" template="Magento_Customer::custom/orders-filters.phtml" before="sales.order.history"/>
+            <block name="sales.order.sortby" template="Magento_Customer::custom/orders-sortby.phtml" before="sales.order.history"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,118 @@
+<?php
+    /** @var \Snowdog\Menu\Block\Menu $block */
+?>
+<?php if ($block->getMenu()): ?>
+    <?php $menuClass = $block->getMenu()->getCssClass() ?>
+    <div id="mmenu" data-bind="scope: 'customer'">
+        <ul>
+            <li>
+                <a href="/">Início</a>
+            </li>
+            <?php foreach ($block->getNodes() as $node): ?>
+                <?php
+                    $childrenLevel = $node->getLevel() + 1;
+                    $children = $this->getNodes($childrenLevel, $node);
+                    $node->setIsParent((bool) $children);
+                    $parentClass = $children ? ' ' . $menuClass . '__item--parent' : '';
+                    $additionalClasses = $node->getClasses() ? ' ' . $node->getClasses() : '';
+					$cat_name_as_class = utf8_encode(strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $node->getTitle())));
+                    $itemClasses = $parentClass . $additionalClasses . ' '.$cat_name_as_class;
+                ?>
+                <?php if($node->getClasses() == 'allcategories'): ?>
+                    <?php foreach ($block->getNodes(1, $node) as $nodeChild): ?>
+                        <?php
+                            $childrenLevel = $nodeChild->getLevel() + 1;
+                            $children = $this->getNodes($childrenLevel, $nodeChild);
+                            $nodeChild->setIsParent((bool) $children);
+
+                            $cat_name_as_class = utf8_encode(strtolower(preg_replace('/[^A-Za-z0-9\-]/', '', $nodeChild->getTitle())));
+
+                            $nodeAttributes = [
+                                'class' => [
+                                    $menuClass . '__inner-item',
+                                    $menuClass . '__inner-item--level1',
+                                    $menuClass . ' ' . $cat_name_as_class
+                                ]
+                            ];
+
+                            if ($children) {
+                                $nodeAttributes['class'][] = $menuClass . '__inner-item--parent ' ;
+                            }
+
+                            if ($nodeChild->getClasses()) {
+                                $nodeAttributes['class'][] = $nodeChild->getClasses();
+                            }
+                        ?>
+                        <li<?= $block->buildAttrFromArray($nodeAttributes) ?>>
+                            <?php echo $block->renderMenuNode($nodeChild) ?>
+                            <?php echo $block->renderSubmenu($children, $nodeChild, $childrenLevel) ?>
+                        </li>
+                    <?php endforeach ?>
+                <?php else: ?>
+                    <li class="<?= $menuClass ?>__item<?= $itemClasses ?>">
+                        <?php echo $block->renderMenuNode($node) ?>
+                        <?php echo $block->renderSubmenu($children, $node, $childrenLevel)?>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach ?>
+            <li>
+                <a href="/sales/order/history">Meus pedidos</a>
+            </li>
+            <!-- ko if: customer().firstname -->
+                <li class="account">
+                    <a href="/customer/account/login" data-bind="text: new String('Bem vindo, %1!').replace('%1', customer().firstname)">Minha Conta</a>
+                    <ul id="account-panel">
+                        <li class="welcome-message"><span data-bind="text: new String('Bem vindo, %1!').replace('%1', customer().firstname)"></li>
+                        <li><a href="/customer/account/"><?= __('Supplier orders') ?></a></li>
+                        <li><a href="/customer/account/"><?= __('Purchase orders') ?></a></li>
+                        <li><a href="/customer/account/"><?= __('My account') ?></a></li>
+                        <li><a href="/customer/account/"><?= __('Company structure') ?></a></li>
+                        <li class="account-logout"><a href="/customer/account/logout">Sair</a></li>
+                        <li class="representante">
+                            <span>
+                                <span class="title"><?= __("Sales representative") ?>:</span>
+                                <span class="value">Fulano da Silva</span>
+                            </span>
+                        </li>
+                    </ul>
+                </li>
+            <!-- /ko -->
+            <!-- ko ifnot: customer().firstname -->
+                <li class="account">
+                    <a href="/customer/account/login">Entrar</a>
+                </li>
+            <!-- /ko -->
+        </ul>
+    </div>
+<?php endif; ?>
+
+<script>
+    require(['jquery', 'mmenu'], function ($) {
+        $("#mmenu").mmenu({
+            "wrappers": [
+                "magento"
+            ],
+            "extensions": [
+                "theme-dark",
+                "pagedim-black"
+            ],
+            "counters": true,
+            "navbars": [
+                {
+                    "position": "top",
+                    "content": [
+                        "prev",
+                        "title",
+                        "close"
+                    ]
+                }
+            ]
+        });
+
+        var mmenu = $("#mmenu").data("mmenu");
+
+        $('body').on('click', '.nav-toggle', function(){
+            mmenu.open();
+        })
+    });
+</script>

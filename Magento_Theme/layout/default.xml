@@ -1,0 +1,31 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+
+    </head>
+    <body>
+        <referenceBlock name="wishs-list-link" remove="true"/>
+        <referenceBlock name="header.container">
+            <container name="aviso.lgpd" htmlTag="div" htmlClass="lgpd active" before="header-wrapper">
+                <block class="Magento\Framework\View\Element\Template" name="aviso_lgpd" template="Magento_Theme::html/aviso-lgpd.phtml" />
+            </container>
+        </referenceBlock>
+        <referenceContainer name="header.login.link">
+            <block name="client.link.block" template="Magento_Theme::custom/area-do-cliente.phtml"/>
+            <!-- Descomentar na onda 2 -->
+            <!-- <block name="order.link.block" template="Magento_Theme::custom/pedido-rapido.phtml"/> -->
+        </referenceContainer>
+
+        <!-- Remover na onda 2 -->
+        <referenceBlock name="minicart" remove="true"/>
+
+        <!-- Arruma a newsletter -->
+        <referenceBlock name="form.subscribe" remove="false"/>
+        <referenceBlock name="newsetter-block" remove="true"/>
+        <referenceBlock name="newsletter.block" remove="true"/>
+        <referenceContainer name="compare-link-wrapper" remove="true"/>
+        <referenceContainer name="footer-container">
+                <container name="newsletter.container" htmlTag="div" htmlClass="newsletter-block" before="footer"/>
+        </referenceContainer>
+        <move element="form.subscribe" destination="newsletter.container"/>
+    </body>
+</page>

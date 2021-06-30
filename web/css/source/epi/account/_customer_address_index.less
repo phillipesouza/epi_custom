@@ -1,0 +1,97 @@
+& when (@media-common = true) {
+    body.customer-address-index {
+        .column.main {
+            .block-addresses-default {
+                .block-title {
+                    display: none;
+                }
+                .box {
+                    .box-title {
+                        font-weight: normal;
+                        line-height: 23px;
+                        text-transform: uppercase;
+                        color: #4E4D50;
+                        span {
+                            font-size: 20px;
+                        }
+                    }
+                    .box-actions {
+                        display: none;
+                    }
+                }
+            }
+            .block-addresses-list {
+                border-bottom: 0 !important;
+                padding-bottom: 0 !important;
+            }
+            .customer-addresses-toolbar {
+                margin-bottom: 33px;
+
+                &:before,
+                &:after {
+                    display: none;
+                }
+                .pager {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .toolbar-amount {
+                        margin-left: 7px;
+                        float: none;
+                        font-size: 14px;
+                    }
+                    .limiter {
+                        margin-right: 7px;
+
+                        select {
+                            margin: 0 3px;
+                            width: 74px;
+                            border-radius: 0;
+                            background: transparent;
+                            border: 1px solid #ccc;
+                            box-shadow: none;
+                        }
+                    }
+                }
+            }
+            .actions-toolbar {
+                display: none;
+            }
+        }
+    }
+
+    @media @768 {
+        body.customer-address-index {
+            .column.main {
+                .block-addresses-default {
+                    .box {
+                        .box-content {
+                            font-size: 16px;
+                        }
+                    }
+                }
+                .additional-addresses {
+                    border: 0;
+                }
+            }
+        }
+    }
+
+    @media @640 {
+        body.customer-address-index {
+            .column.main {
+                .block {
+                    .block-title {
+                        margin-bottom: 13px !important;
+                    }
+                }
+                .additional-addresses {
+                    td  {
+                        padding: 5px 0 !important;
+                    }
+                }
+            }
+        }
+    }
+}

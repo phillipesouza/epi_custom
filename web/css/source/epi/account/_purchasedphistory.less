@@ -1,0 +1,313 @@
+& when (@media-common = true) {
+    .purchasedphistory-index-index {
+        .column.main {
+            .page-title-wrapper {
+                .page-title {
+                    margin-bottom: 4px;
+                }
+            }
+            .page-desc {
+                font-size: 16px;
+                color: #000;
+                margin-bottom: 31px;
+            }
+            #form-filter {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: flex-end;
+
+                label {
+                    font-size: 12px;
+                    flex-shrink: 0;
+                    margin-right: 10px;
+                }
+                .filter-option {
+                    &:not(.period) {
+                        flex: 1;
+                        margin-right: 21px;
+                    }
+                    &.period {
+                        display: flex;
+                        width: 100%;
+                        margin-bottom: 24px;
+
+                        .control {
+                            flex: 1;
+                            max-width: 337px;
+                            &.control-period {
+                                margin-right: 33px;
+                            }
+                            &.fromat {
+                                display: none;
+                                max-width: none;
+
+                                &.show {
+                                    display: flex;
+                                }
+                                .field {
+                                    display: flex;
+                                    align-items: center;
+
+                                    &.from {
+                                        margin-right: 10px;
+                                    }
+
+                                    &.from,
+                                    &.at {
+                                        position: relative;
+                                        button {
+                                            .image("svg/calendar.svg", 16px, 17px);
+                                            background-color: transparent;
+                                            border: 0;
+                                            box-shadow: none;
+                                            position: absolute;
+                                            right: 15px;
+                                            top: 50%;
+                                            transform: translate(0, -50%);
+                                            padding: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .control {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+                #filter-send {
+                    width: 93px;
+                    height: 38px;
+                    border: 0;
+                    background: #003E7E;
+                    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+                    font-size: 12px;
+                    line-height: 14px;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    color: #fff;
+
+                    &:hover {
+                        background: #002851;
+                    }
+                }
+            }
+            .products-grid {
+                margin: 44px 0 0 0;
+                .product-items {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    margin: 0 -24px;
+
+                    .product-item {
+                        margin: 0 24px 30px;
+                        width: auto;
+                        flex: 1;
+                        min-width: 200px;
+                        position: relative;
+                        max-width: 230px;
+
+                        .product-item-details {
+                            padding-bottom: 10px;
+                        }
+
+                        .product-item-attr {
+                            font-size: 11px;
+
+                            .product-company {
+                                font-size: 13px;
+                                margin-bottom: 5px;
+                                text-transform: uppercase;
+                            }
+                            .product-attribute {
+                                display: flex;
+                                margin-bottom: 5px;
+
+                                .title {
+                                    color: #727272;
+                                    margin-right: 3px;
+                                }
+                                .content {
+                                    color: #444444;
+                                }
+
+                                &.ca {
+                                    .content {
+                                        color: @primary__color;
+                                        &:after {
+                                            .icon-theme("\e916", 10px, @primary__color);
+                                            margin-left: 4px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .secondary-addto-links {
+                            position: absolute;
+                            top: 5px;
+                            left: 8px;
+                            z-index: 1;
+
+                            .action.tocompare {
+                                font-weight: bold;
+                                font-size: 13px;
+                                display: flex;
+                                align-items: center;
+
+                                &:hover {
+                                    text-shadow: none;
+                                    text-decoration: underline;
+                                }
+                                &:before {
+                                    .icon-theme('\e929', 18px);
+                                    font-weight: 400;
+                                    margin-right: 9px;
+                                    text-decoration: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media @1024 {
+        .purchasedphistory-index-index {
+            .column.main {
+                .products-grid {
+                    .product-items {
+                        margin: 0 -7px;
+
+                        .product-item {
+                            margin: 0 7px 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media @920 {
+        .purchasedphistory-index-index {
+            .column.main #form-filter {
+                .filter-option {
+                    &:not(.period) {
+                        max-width: 337px;
+                    }
+                    &.period {
+
+                    }
+                    .control {
+                        flex-direction: column;
+                        align-items: flex-start;
+
+                        .field {
+                            width: 100%;
+                            flex-direction: column;
+                            align-items: flex-start !important;
+
+                            &.from {
+                                margin-bottom: 10px;
+                            }
+
+                            &.from,
+                            &.at {
+                                button {
+                                    top: 66% !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media @500 {
+        .purchasedphistory-index-index {
+            .column.main {
+                .page-desc {
+                    margin-bottom: 20px;
+                }
+                #form-filter {
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    .filter-option {
+                        width: 100%;
+                        margin: 0 0 20px 0;
+
+                        &:not(.period) {
+                            max-width: none;
+                        }
+                        &.period {
+                            flex-direction: column;
+                            margin-bottom: 20px;
+
+                            .control {
+                                max-width: none;
+
+                                &.control-period {
+                                    margin: 0 0 20px 0;
+                                }
+                                &.fromat {
+                                    flex-direction: row;
+                                    align-items: flex-end;
+
+                                    [for="from"] {
+                                        width: 100%;
+                                    }
+                                    label {
+                                        margin-right: 20px;
+                                    }
+                                    input {
+                                        margin-bottom: 0 !important;
+                                    }
+                                    #from-filter {
+                                        margin-right: 20px;
+                                    }
+                                    .field {
+                                        margin-bottom: 0;
+
+                                        &.from {
+                                            margin-right: 20px;
+                                        }
+
+                                        &.at {
+                                            flex-direction: row;
+                                            align-items: center !important;
+
+                                            button {
+                                                top: 50% !important;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    #filter-send {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media @480 {
+        .purchasedphistory-index-index {
+            .column.main {
+                .products-grid {
+                    .product-items {
+                        .product-item {
+                            min-width: 160px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

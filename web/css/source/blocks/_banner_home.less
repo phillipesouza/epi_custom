@@ -1,0 +1,44 @@
+& when (@media-common = true) {
+    .home-banner-row {
+        picture, img{
+            display: block;
+            margin: auto;
+        }
+
+        .home-banners {
+            .slick-loader(350px);
+        }
+
+        .slick-initialized {
+            button.slick-prev,
+            button.slick-next {
+                background: #fff;
+                width: 50px;
+
+                &:hover {
+                    background: @primary__color;
+
+                    &:before {
+                        color: #fff;
+                    }
+                }
+
+                &:before {
+                    color: #727272;
+                }
+            }
+
+            button.slick-prev {
+                left: 0;
+                justify-content: flex-end;
+                padding-right: 13px;
+            }
+
+            button.slick-next {
+                right: 0;
+                justify-content: flex-start;
+                padding-left: 13px;
+            }
+        }
+    }
+}

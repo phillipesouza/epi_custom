@@ -1,0 +1,60 @@
+<?php
+    $product = $block->getProduct();
+
+    $ca = $product->getData('approval_ceriticate');
+    $equipamento = $product->getData('equipment_type');
+    $aprovadoPara = $product->getData('approval_to');
+    $normasTecnicas = $product->getData('technical_rules');
+    $restricoesDeUso = $product->getData('restrictions');
+
+?>
+
+<div class="product-info-attributes">
+    <?php /* Para onda 2 */ ?>
+    <?php if(false): ?>
+        <p class="purchased">Este item já foi comprado anterioriormente</p>
+    <?php endif; ?>
+
+    <?php if($ca): ?>
+        <p class="ca">
+            <span class="ca-title">CA: </span>
+            <a download href="https://mobsolucoesdigitais.blob.core.windows.net/mobepi/<?= $ca ?>.pdf" class="ca-value"><?= $ca ?></a>
+        </p>
+    <?php endif; ?>
+
+    <?php /* Para onda 2 */ ?>
+    <?php if(false): ?>
+        <p class="avaliable">
+            <span class="avaliable-title">Disponibilidade: </span>
+            <span class="avaliable-value">Encomenda</span>
+        </p>
+    <?php endif; ?>
+
+    <?php if($equipamento): ?>
+        <p class="product-info-text">
+            <span class="title">Equipamento</span>
+            <span class="value"><?= $equipamento ?></span>
+        </p>
+    <?php endif; ?>
+
+    <?php if($aprovadoPara): ?>
+        <p class="product-info-text">
+            <span class="title">Aprovado para</span>
+            <span class="value"><?= $aprovadoPara ?></span>
+        </p>
+    <?php endif; ?>
+
+    <?php if($normasTecnicas): ?>
+        <p class="product-info-text">
+            <span class="title">Normas técnicas</span>
+            <span class="value"><?= $normasTecnicas ?></span>
+        </p>
+    <?php endif; ?>
+
+    <?php if($restricoesDeUso): ?>
+        <p class="product-info-text">
+            <span class="title">Restrições de uso</span>
+            <span class="value"><?= $restricoesDeUso ?></span>
+        </p>
+    <?php endif; ?>
+</div>

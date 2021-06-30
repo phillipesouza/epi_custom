@@ -1,0 +1,139 @@
+.icon-theme(@content, @font-size, @color: @primary__color) {
+    content: @content;
+    font-family: 'icomoon';
+    font-size: @font-size;
+    color: @color;
+    line-height: 1;
+}
+
+.image(@url, @width, @height){
+    display: block;
+    width: @width;
+    height: @height;
+    background-image: url('@{baseDir}images/@{url}');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.max-lines(@height, @line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @line;
+    line-height: @height;
+    height: @line * @height;
+}
+
+.slick-loader(@height) {
+    &:not(.slick-initialized) {
+        height: @height;
+        position: relative;
+        overflow: hidden;
+        .lib-loading(
+            @_loading-background-color: #ccc
+        );
+
+        &:before {
+            z-index: 8;
+        }
+    }
+}
+
+.slick-loader-mobile(@height) {
+    &:not(.slick-initialized) {
+        height: @height;
+    }
+}
+
+.slick-margin(
+    @marginElements,
+    @marginContainer: false,
+    @fit: true
+    ){
+    .slick-slide {
+        margin: 0 @marginElements / 2;
+    }
+    .slick-list when (ispixel(@marginContainer)) {
+        margin: 0 @marginContainer;
+    }
+    .slick-list when (@marginContainer = false) {
+        margin: 0 @marginElements / 2 * -1;
+    }
+    .slick-initialized when (@fit = true){
+        overflow: hidden;
+    }
+    .slick-initialized when (@fit = false){
+        overflow: visible;
+    }
+}
+
+.slick-margin-reset(){
+    .slick-slide {
+        margin: 0;
+    }
+    .slick-list {
+        margin: 0;
+    }
+    .slick-initialized {
+        overflow: hidden;
+    }
+}
+
+.loader(@width, @height) {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-left-color: @primary__color;
+    border-radius: 50%;
+    width: @width;
+    height: @height;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+.max-lines-variable(@height, @line) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @height;
+    line-height: @line;
+    max-height: @line * @height;
+}
+
+.custom-checkbox(
+    @notSelected,
+    @selected,
+    @size: 16px,
+    @topSpacing: 3px,
+    @leftSpacing: -24px,
+    @backgroundColor: #fff,
+    @color: @primary__color
+){
+    visibility: hidden;
+    width: @size;
+    height: @size;
+    + label {
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        &:before {
+            .icon-theme(@notSelected, @size, @color: @color);
+            position: absolute;
+            left: @leftSpacing;
+            top: @topSpacing;
+            background: @backgroundColor;
+        }
+    }
+    &:checked {
+        + label {
+            &:before {
+                content: @selected;
+            }
+        }
+    }
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

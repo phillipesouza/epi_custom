@@ -1,0 +1,74 @@
+& when (@media-common = true) {
+    body.customer-account-index {
+        .column.main {
+            .block {
+                &.block-dashboard-addresses {
+                    .box {
+                        float: none !important;
+                        width: 100% !important;
+
+                        &:not(:last-child) {
+                            margin-bottom: 20px;
+                        }
+                        .box-title {
+                            margin-bottom: 6px;
+                        }
+                        .box-actions {
+                            margin-top: 6px;
+                        }
+                    }
+                }
+
+                &.block-dashboard-orders {
+                    .table-wrapper {
+                        border: 0;
+                    }
+
+                    .action {
+                        &:after {
+                            border-color: #727272;
+                            margin: 0 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media @768 {
+        body.customer-account-index {
+            .page-title-wrapper {
+                .page-title {
+                    margin-bottom: 22px;
+                    margin-right: 0;
+                }
+            }
+            .column.main {
+                .block {
+                    &.block-dashboard-addresses {
+                        address {
+                            font-size: 16px;
+                            line-height: 1.45;
+
+                            span {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    &.block-dashboard-orders {
+                        .block-title {
+                            display: flex;
+                            align-items: center;
+                            margin-bottom: 10px !important;
+
+                            a {
+                                margin: 0 0 0 23px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

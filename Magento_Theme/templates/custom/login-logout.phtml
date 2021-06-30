@@ -1,0 +1,44 @@
+<div class="login-block <?= $block->isLoggedIn() ? 'loggedin' : 'not-loggedin' ?>">
+    <span class="action toggle" data-toggle="dropdown" aria-haspopup="true" data-mage-init='{"dropdown":{ "menu": ".dropdown-options" }}'>
+        <span class="icon"></span>
+        <?php if ($block->isLoggedIn()) : ?>
+            <div class="text" data-bind="scope: 'customer'">
+                <span class="login-greetings" data-mage-init='{"js/customerGreeting":{}}' data-bind="text: new String('Bem vindo, %1!').replace('%1', customer().firstname)"></span>
+            </div>
+        <?php endif; ?>
+    </span>
+    <?php if ($block->isLoggedIn()) : ?>
+        <ul>
+            <li class="representante">
+                <span class="title"><?= __("Sales representative") ?>:</span>
+                <span class="value">Fulano da Silva</span>
+            </li>
+            <li><a href="/customer/account/"><?= __('My account') ?></a></li>
+            <li><a href="/customer/account/"><?= __('My products') ?></a></li>
+            <li><a href="/customer/account/"><?= __('Epi orders') ?></a></li>
+            <li><a href="/customer/account/"><?= __('Purchase orders') ?></a></li>
+            <li><a href="/customer/account/logout/"><?= __('Logout') ?></a></li>
+        </ul>
+    <?php else : ?>
+        <ul>
+            <li><a href="/customer/account/login/"><?= __('Sign In') ?></a></li>
+            <!-- Descomentar na onda 2 -->
+            <!-- <span> / </span>
+            <li><a href="/customer/account/create/"><?= __('Create Account') ?></a></li> -->
+        </ul>
+    <?php endif; ?>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "customer": {
+                        "component": "Magento_Customer/js/view/customer"
+                    }
+                }
+            }
+        }
+    }
+</script>

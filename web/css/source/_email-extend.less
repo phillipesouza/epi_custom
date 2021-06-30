@@ -1,0 +1,163 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Email extend styles
+//  _____________________________________________
+
+//  This file should be used for theme-specific styles for emails that extend or modify the styles in _email.less
+//  This will allow you to edit email styles without copying and editing the _email.less file
+
+//  Importing fonts from an external CSS file, rather than embedding @font-face declarations inside the <style> tag,
+//  as the latter will cause font rendering issues if the web fonts are inaccessible.
+
+@import url("@{baseUrl}css/email-fonts.css");
+
+.header {
+    background-color: #fff;
+    padding: @email-body__padding;
+}
+
+.footer {
+    background-color: #fff;
+    padding: @email-body__padding;
+
+    hr {
+        width: 80%;
+        border-top: 1px solid #ccc;
+    }
+
+    .email-footer-address{
+        hr {
+            width: 20%;
+            border-top: 2px solid #003E7E;
+        }
+    }
+
+    table {
+        width: 100%;
+
+        td {
+            padding-bottom: @email-body__padding;
+            width: 33%;
+
+            p {
+                margin-bottom: 0;
+
+                &.phone {
+                    font-size: @font-size__l;
+
+                    a {
+                        color: inherit;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+    .header,
+    .main-content,
+    .footer {
+        padding: @email-body__padding @indent__s !important;
+    }
+
+    .footer {
+        td {
+            display: block;
+            width: auto !important;
+        }
+    }
+}
+
+.main-content {
+    padding: 40px;
+    // border-radius: 17px;
+    color:#3E3E3E;
+    a {
+        color:#000000 !important;
+        &:hover {
+            color: #0064AC !important;
+        }
+    }
+    p {
+      color:#909090;
+      font-size: 16px;
+    }
+    h3 {
+        font-weight: 400;
+        font-size: 16px;
+    }
+}
+.grey-text {
+    color: #909090;
+    font-size:16px;
+    a {
+        color: #909090 !important;
+        text-decoration:underline;
+        &:hover {
+            text-decoration:none;    
+        }    
+    }
+}
+.footer {
+    text-align: center;
+    color:#909090;
+    font-size: 12px;
+    padding: 45px 25px 25px;
+    a {
+        color:#0064AC !important;
+        &:hover {
+            color: #0064AC !important;
+        }
+    }
+    i {
+        font-style:normal;
+        color:#000;
+    }
+}
+.reward-email-img {
+    display:block;
+    padding: 0px 0px 18px 0px;
+    box-sizing: border-box;
+    .reward_points {
+        text-align: center;
+        padding:5px 0px 0px 0px;
+        h3 {
+            color:#0064AC;
+            margin: 0px 0px 0px;
+            font-size:64px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        p {
+            color:#0064AC;
+            font-size:30px;
+            font-weight: normal;
+            margin-left: 7px;
+            display: inline-block;
+        }
+    }
+}
+
+.email-credentials {
+    td {
+        a {
+           color:#3E3E3E !important; 
+        }
+    }
+}
+.password-new-btn {
+    a {
+        background:#0064AC !important; 
+        border-radius: 4px; 
+        color:#ffffff !important; 
+        border: 0px;
+        &:hover {
+            color:#ffffff !important; 
+        }
+    }
+}
